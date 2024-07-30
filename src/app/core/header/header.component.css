@@ -1,0 +1,14 @@
+mat-toolbar {
+    background: #AEDFF7;
+    color: #2D2D2D ;
+    display: flex;
+    justify-content: center;
+    height: 64px;
+  }
+
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
