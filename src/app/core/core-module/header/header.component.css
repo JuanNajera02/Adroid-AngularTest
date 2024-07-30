@@ -1,6 +1,6 @@
 mat-toolbar {
-    background: #AEDFF7;
-    color: #2D2D2D ;
+    background-color: #0D47A1; 
+    color: white;
     display: flex;
     justify-content: center;
     height: 64px;
@@ -9,6 +9,5 @@ mat-toolbar {
 
 .title {
     font-size: 18px;
-    font-weight: bold;
     margin-left: 10px;
   }

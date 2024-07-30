@@ -1,34 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './core/footer/footer.component';
-import { HeaderComponent } from './core/header/header.component';
-import { HomeComponent } from './modules/pages/home/home.component';
-import { UserListComponent } from './modules/pages/home/user-list/user-list.component';
-import { UserFormComponent } from './modules/pages/home/user-form/user-form.component';
-import { HighlightDirectiveDirective } from './shared/directives/highlight-directive.directive';
-import { FilterPipePipe } from './shared/pipes/filter-pipe.pipe';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { HomeModuleModule } from './modules/home-module/home-module.module';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD8rNfmKLPz8RpdTd0ox0lmJTEyoUstrjc",
+  authDomain: "angular-adroid.firebaseapp.com",
+  projectId: "angular-adroid",
+  storageBucket: "angular-adroid.appspot.com",
+  messagingSenderId: "916765976742",
+  appId: "1:916765976742:web:d20a063db4509193976c67",
+  measurementId: "G-ME650BYSZQ"
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    UserListComponent,
-    UserFormComponent,
-    HighlightDirectiveDirective,
-    FilterPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbarModule,
-    MatIconModule
+    HomeModuleModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
