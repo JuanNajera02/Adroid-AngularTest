@@ -1,0 +1,21 @@
+.user-list-container {
+  padding: 16px;
+  max-height: 400px; 
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.search{
+  display: flex;
+  padding-left: 16px;
+}
+
+table {
+  width: 100%;
+
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+

@@ -1,20 +1,20 @@
 :host {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 app-header {
-  flex: 0 0 auto; 
+  flex: 0 0 auto;
 }
 
 .content {
-  flex: 1 1 auto; 
-  padding: 20px; 
-  overflow-y: auto; 
-  background-color: #FAFAFA; 
+  flex: 1 0 auto;
+  padding: 20px;
+  background-color: #FAFAFA;
 }
 
 app-footer {
-  flex: 0 0 auto; 
+  flex: 0 0 auto;
+  margin-top: auto; /* Hace que el footer se empuje al final si hay espacio */
 }
