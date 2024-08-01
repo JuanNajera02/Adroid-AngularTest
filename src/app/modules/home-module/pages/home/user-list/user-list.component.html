@@ -1,35 +1,35 @@
 <div class="search">
   <mat-form-field appearance="fill">
     <mat-label>Buscar por nombre</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar">
+    <input matInput (keyup)="onSearchChange($event)" placeholder="Buscar">
   </mat-form-field>
 </div>
 
-<div class="user-list-container">
+<div class="user-list-container" appHighlightDirective>
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Nombre Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+      <td mat-cell *matCellDef="let user" appHighlightDirective> {{user.name}} </td>
     </ng-container>
 
     <!-- Apellido Column -->
     <ng-container matColumnDef="lastname">
       <th mat-header-cell *matHeaderCellDef> Apellido </th>
-      <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+      <td mat-cell *matCellDef="let user" appHighlightDirective> {{user.lastname}} </td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+      <td mat-cell *matCellDef="let user" appHighlightDirective> {{user.email}} </td>
     </ng-container>
 
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
-      <td mat-cell *matCellDef="let user">
+      <td mat-cell *matCellDef="let user" appHighlightDirective>
         <button mat-icon-button color="primary" (click)="editUser(user)">
           <mat-icon>edit</mat-icon>
         </button>

@@ -11,6 +11,7 @@ import { User } from '../../../../../modules/home-module/pages/home/models/user.
 export class UserListComponent implements OnInit {
 
   users: User[] = [];
+  filteredUsers: User[] = [];
   displayedColumns: string[] = ['name', 'lastname', 'email', 'actions'];
   dataSource: MatTableDataSource<User> = new MatTableDataSource();
   searchTerm: string = '';
@@ -24,8 +25,7 @@ export class UserListComponent implements OnInit {
   loadUsers() {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-      console.log(users);	
-      this.dataSource = new MatTableDataSource(users);
+      this.applyFilter();
     });
   }
 
@@ -39,8 +39,16 @@ export class UserListComponent implements OnInit {
     this.userService.selectUser(user); // Ajusta esto a tu lógica específica
   }
 
-  applyFilter(event: Event) {
+  applyFilter() {
+    this.filteredUsers = this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    this.dataSource = new MatTableDataSource(this.filteredUsers);
+  }
+
+  onSearchChange(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.searchTerm = filterValue.trim().toLowerCase();
+    this.applyFilter();
   }
 }
